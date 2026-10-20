@@ -57,7 +57,7 @@ function draw() {
     const size = symbolSize(meteorites.getNum(i, 'mass (g)'));
     // The symbol colours are re-tuned for a light basemap
     if (meteorites.getString(i, 'fall') === 'Fell') {
-      fill(220, 60, 30, 200);
+      fill(156, 0, 19, 200);
       stroke(120, 20, 0);
     } else {
       fill(255, 131, 67, 90);
@@ -76,7 +76,7 @@ function drawLegend() {
   fill(30);
   textSize(13);
   text("Meteorites in NASA's catalogue (area follows mass)", x, y - 10);
-  fill(220, 60, 30, 200); stroke(120, 20, 0);
+  fill(156, 0, 19, 200); stroke(120, 20, 0);
   ellipse(x + 8, y + 12, 12, 12);
   noStroke(); fill(30);
   text('seen falling ("Fell")', x + 24, y + 16);
@@ -86,10 +86,13 @@ function drawLegend() {
   text('found later ("Found")', x + 24, y + 40);
 }
 
+
 function windowResized() {
   resizeCanvas(windowWidth, windowHeight);
   redraw();
 }
+
+
 </script>
 </body>
 </html>
