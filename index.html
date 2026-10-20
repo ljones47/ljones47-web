@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Meteorite Landings</title>
+  <link href="https://cdn.jsdelivr.net/npm/maplibre-gl@5.24.0/dist/maplibre-gl.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/maplibre-gl@5.24.0/dist/maplibre-gl.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/p5@1.11.13/lib/p5.min.js"></script>
+  <style>
+    body { margin: 0; }
+    #map { position: absolute; inset: 0; }
+    #map canvas.p5Canvas { position: absolute; top: 0; left: 0; pointer-events: none; z-index: 1; }
+  </style>
+</head>
+<body>
+<div id="map"></div>
+<script>
+const myMap = new maplibregl.Map({
+  container: 'map',
+  center: [-123.25, 49.26],
+  zoom: 2.5,
+  // One line changes the whole basemap. OpenFreeMap serves liberty, bright, positron, dark and fiord.
+  // positron is pale grey with few labels, so the symbols can use strong colours.
+  style: 'https://tiles.openfreemap.org/styles/liberty'
+});
+myMap.addControl(new maplibregl.NavigationControl());
+
+function latLngToPixel(lat, lng) { return myMap.project([lng, lat]); }
+function pixelToLatLng(x, y)     { const ll = myMap.unproject([x, y]); return { lat: ll.lat, lng: ll.lng }; }
+
+let meteorites;
+
+function preload() {
+  meteorites = loadTable('Meteorite_Landings.csv', 'csv', 'header');
+}
+
+function setup() {
+  const canvas = createCanvas(windowWidth, windowHeight);
+  canvas.parent('map');
+  myMap.on('move', () => redraw());
+  noLoop();
+}
+
+function symbolSize(massInGrams) {
+  return 3 + 40 * sqrt(massInGrams / 60000000);
+}
+
+function draw() {
+  clear();
+  blendMode(BLEND);
+  const bounds = myMap.getBounds();
+  for (let i = 0; i < meteorites.getRowCount(); i++) {
+    const lat = meteorites.getNum(i, 'reclat');
+    const lng = meteorites.getNum(i, 'reclong');
+    if (!bounds.contains([lng, lat])) continue;
+    const pos = latLngToPixel(lat, lng);
+    const size = symbolSize(meteorites.getNum(i, 'mass (g)'));
+    // The symbol colours are re-tuned for a light basemap
+    if (meteorites.getString(i, 'fall') === 'Fell') {
+      fill(220, 60, 30, 200);
+      stroke(120, 20, 0);
+    } else {
+      fill(255, 131, 67, 90);
+      noStroke();
+    }
+    ellipse(pos.x, pos.y, size, size);
+  }
+  drawLegend();
+}
+
+function drawLegend() {
+  const x = 20, y = height - 70;
+  noStroke();
+  fill(255, 255, 255, 210);
+  rect(x - 10, y - 30, 340, 90, 6);
+  fill(30);
+  textSize(13);
+  text("Meteorites in NASA's catalogue (area follows mass)", x, y - 10);
+  fill(220, 60, 30, 200); stroke(120, 20, 0);
+  ellipse(x + 8, y + 12, 12, 12);
+  noStroke(); fill(30);
+  text('seen falling ("Fell")', x + 24, y + 16);
+  fill(255, 131, 67, 120);
+  ellipse(x + 8, y + 36, 12, 12);
+  fill(30);
+  text('found later ("Found")', x + 24, y + 40);
+}
+
+function windowResized() {
+  resizeCanvas(windowWidth, windowHeight);
+  redraw();
+}
+</script>
+</body>
+</html>
