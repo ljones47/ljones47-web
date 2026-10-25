@@ -37,8 +37,8 @@
                     <p>Corporate Applicant: ${corporateApplicant}</p>
                     <p>Case Decision: ${decision}</p>
                     <p>File Link (if applicable: ${fileLink}</p>');
-      popup.addTo(map)
-      map.on('click', 'ARI-C_cases', onARICase)
+      popup.addTo(map);
+      map.on('click', 'ARI-C_cases', onARICase);
     });
     map.addControl(new maplibregl.NavigationControl());
   </script>
