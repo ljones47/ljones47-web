@@ -36,7 +36,7 @@
     "CSD_shelter1": {
       "type": "geojson",
       "url": "https://ljones47.github.io/ljones47-web/CSD_shelter_half_one.json"
-    }
+    },
     "CSD_shelter2": {
       "type": "geojson",
       "url": "https://ljones47.github.io/ljones47-web/CSD_shelter_half_two.json"
