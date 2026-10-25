@@ -35,7 +35,7 @@
     },
     "CSD_tiles": {
       "type": "vector",
-      "url": "pmtiles://https://ljones47.github.io/ljones47-web/CSD_shelter.pmtiles"
+      "url": "pmtiles://https://ljones47.github.io/ljones47-web/CSD_shelter2.pmtiles"
     },
     "DA_tiles2": {
       "type": "vector",
