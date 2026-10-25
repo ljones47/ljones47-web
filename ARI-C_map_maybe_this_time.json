@@ -52,33 +52,6 @@
       "paint": {"background-color": "rgba(190, 190, 190, 1)"}
     },
     {
-      "id": "CT_tiles",
-      "type": "fill",
-      "source": "CT_tiles",
-      "source-layer": "CT_shelter_data",
-      "minzoom": 10.5,
-      "maxzoom": 12,
-      "layout": {"visibility": "visible"},
-      "paint": {
-        "fill-color": [
-          "step",
-          ["get", "COL4"],
-          "rgba(230, 230, 230, 0.9)",
-          1,
-          "#fff8f2",
-          15,
-          "#fee5ce",
-          30,
-          "#fed1b1",
-          45,
-          "#f9ba9a",
-          60,
-          "#fda279"
-        ],
-        "fill-opacity": 1
-      }
-    },
-    {
       "id": "CSD_tiles",
       "type": "fill",
       "source": "CSD_tiles",
@@ -112,6 +85,33 @@
           10,
           "rgba(170, 170, 170, 0.9)"
         ]
+      }
+    },
+    {
+      "id": "CT_tiles",
+      "type": "fill",
+      "source": "CT_tiles",
+      "source-layer": "CT_shelter_data",
+      "minzoom": 10.5,
+      "maxzoom": 12,
+      "layout": {"visibility": "visible"},
+      "paint": {
+        "fill-color": [
+          "step",
+          ["get", "COL4"],
+          "rgba(230, 230, 230, 0.9)",
+          1,
+          "#fff8f2",
+          15,
+          "#fee5ce",
+          30,
+          "#fed1b1",
+          45,
+          "#f9ba9a",
+          60,
+          "#fda279"
+        ],
+        "fill-opacity": 1
       }
     },
     {
