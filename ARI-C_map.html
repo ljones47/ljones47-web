@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>ARI-Cs and rental affordability</title>
+  <link href="https://cdn.jsdelivr.net/npm/maplibre-gl@5.24.0/dist/maplibre-gl.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/maplibre-gl@5.24.0/dist/maplibre-gl.js"></script>
+  <script src="https://unpkg.com/pmtiles@4.5.0/dist/pmtiles.js"></script>
+  <style> body { margin: 0; } #map { position: absolute; inset: 0; } </style>
+</head>
+<body>
+  <div id="map"></div>
+  <script type="module">
+  const protocol = new pmtiles.Protocol();
+  maplibregl.addProtocol('pmtiles', protocol.tile);
+  </script>
+  <script>
+    const map = new maplibregl.Map({
+      container: 'map',
+      style: 'ARI-C_webmap_first_try.json',        // the file you downloaded from Maputnik
+      center: [-123.25, 49.26],    // longitude, latitude
+      zoom: 4
+    });
+    map.addControl(new maplibregl.NavigationControl());
+  </script>
+</body>
+</html>
