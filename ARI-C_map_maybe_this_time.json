@@ -43,7 +43,7 @@
     }
   },
   "sprite": "https://openmaptiles.github.io/positron-gl-style/sprite",
-  "glyphs": "https://api.maptiler.com/fonts/{fontstack}/{range}.pbf?key=get_your_own_MOlaJF6o1CcYhnO7JnI4",
+  "glyphs": "https://api.maptiler.com/fonts/{fontstack}/{range}.pbf?key=MOlaJF6o1CcYhnO7JnI4",
   "layers": [
     {
       "id": "background",
