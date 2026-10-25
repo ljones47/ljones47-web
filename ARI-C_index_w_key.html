@@ -19,7 +19,7 @@
       container: 'map',
       style: 'ARI-C_map_maybe_this_time.json',        // the file you downloaded from Maputnik
       center: [-124.8, 54.8],    // longitude, latitude
-      zoom: 4.25};
+      zoom: 4.25});
     function onARICase(e) {
       const ARIC = e.features[0].properties;
       const unitsImpacted = e.features[0].properties['Increase unit #'];
@@ -33,7 +33,7 @@
       popup.setHTML('<p>Units Impacted: ${unitsImpacted}</p><p>Units Impacted: ${unitsImpacted}</p><p>Amount Requested: ${requested}</p><p>Amount Granted: ${granted}</p><p>Corporate Applicant: ${corporateApplicant}</p><p>Case Decision: ${decision}</p><p>File Link (if applicable): ${fileLink}</p>');
       popup.addTo(map);
       map.on('click', 'ARI-C_cases', onARICase);
-    });
+    };
     map.addControl(new maplibregl.NavigationControl());
   </script>
 </body>
