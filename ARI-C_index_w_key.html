@@ -22,6 +22,25 @@
       zoom: 4.25
     });
     map.addControl(new maplibregl.NavigationControl());
+    function onARICase(e) {
+      const ARIC = e.features[0].properties;
+      const unitsImpacted = e.features[0].properties['Increase unit #'];
+      const requested = e.features[0].properties['Requested amt'];
+      const granted = e.features[0].properties['Granted amt'];
+      const corporateApplicant = e.features[0].properties['Corporate applicant'];
+      const decision = e.features[0].properties['Decision'];
+      const fileLink = e.features[0].properties['File Link'];
+      const popup = new maplibregl.Popup();
+      popup.setLngLat(e.lngLat);
+      popup.setHTML('<p>Units Impacted: ${unitsImpacted}</p>
+                    <p>Units Impacted: ${unitsImpacted}</p>
+                    <p>Amount Requested: ${requested}</p>
+                    <p>Amount Granted: ${granted}</p>
+                    <p>Corporate Applicant: ${corporateApplicant}</p>
+                    <p>Case Decision: ${decision}</p>
+                    <p>File Link (if applicable: ${fileLink}</p>');
+      popup.addTo(map)
+      map.on('click', 'ARI-C_cases', onARICase)
   </script>
 </body>
 </html>
