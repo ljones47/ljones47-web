@@ -766,11 +766,9 @@
         "visibility": "visible"
       },
       "paint": {
-        "text-color": {
-          "base": 1,
-          "stops": [[3, "rgb(157,169,177)"], [4, "rgb(153, 153, 153)"]]
-        },
-        "text-halo-color": "rgba(236,236,234,0.7)",
+        "text-color": "rgba(67, 72, 80, 1)",
+        "text-halo-blur": 1,
+        "text-halo-color": "rgb(242,243,240)",
         "text-halo-width": 1.4
       }
     },
@@ -796,11 +794,9 @@
         "visibility": "visible"
       },
       "paint": {
-        "text-color": {
-          "base": 1,
-          "stops": [[3, "rgb(157,169,177)"], [4, "rgb(153, 153, 153)"]]
-        },
-        "text-halo-color": "rgba(236,236,234,0.7)",
+        "text-color": "rgba(67, 72, 80, 1)",
+        "text-halo-blur": 1,
+        "text-halo-color": "rgb(242,243,240)",
         "text-halo-width": 1.4
       }
     },
@@ -827,14 +823,12 @@
         "visibility": "visible"
       },
       "paint": {
-        "text-color": {
-          "base": 1,
-          "stops": [[3, "rgb(157,169,177)"], [4, "rgb(153, 153, 153)"]]
-        },
-        "text-halo-color": "rgba(134, 115, 118, 1)",
+        "text-color": "rgba(67, 72, 80, 1)",
+        "text-halo-blur": 1,
+        "text-halo-color": "rgb(242,243,240)",
         "text-halo-width": 1.4
-      }
     }
+  }
   ],
   "id": "positron"
 }
