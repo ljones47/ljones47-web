@@ -59,10 +59,7 @@
       "id": "CSD shelter1",
       "type": "fill",
       "source": "CSD_shelter1",
-      "source-layer": "CSD_shelter_data",
-      "minzoom": 0,
       "maxzoom": 10,
-      "layout": {"visibility": "visible"},
       "paint": {
         "fill-color": [
           "step",
@@ -79,7 +76,6 @@
           60,
           "#fda279"
         ],
-        "fill-opacity": 1,
         "fill-outline-color": [
           "interpolate",
           ["linear"],
@@ -95,10 +91,7 @@
       "id": "CSD shelter2",
       "type": "fill",
       "source": "CSD_shelter2",
-      "source-layer": "CSD_shelter_data",
-      "minzoom": 0,
       "maxzoom": 10,
-      "layout": {"visibility": "visible"},
       "paint": {
         "fill-color": [
           "step",
@@ -115,7 +108,6 @@
           60,
           "#fda279"
         ],
-        "fill-opacity": 1,
         "fill-outline-color": [
           "interpolate",
           ["linear"],
@@ -126,7 +118,7 @@
           "rgba(170, 170, 170, 0.9)"
         ]
       }
-    },
+    },    
     {
       "id": "CT_tiles",
       "type": "fill",
