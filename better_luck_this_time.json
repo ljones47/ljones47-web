@@ -56,7 +56,7 @@
       "type": "fill",
       "source": "CT_tiles",
       "source-layer": "CT_shelter_data",
-      "minzoom": 10.5,
+      "minzoom": 10,
       "maxzoom": 12,
       "layout": {"visibility": "visible"},
       "paint": {
@@ -84,7 +84,7 @@
       "source": "CSD_tiles",
       "source-layer": "CSD_shelter_data",
       "minzoom": 0,
-      "maxzoom": 10.5,
+      "maxzoom": 10,
       "layout": {"visibility": "visible"},
       "paint": {
         "fill-color": [
