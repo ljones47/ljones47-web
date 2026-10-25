@@ -43,7 +43,7 @@
     }
   },
   "sprite": "https://openmaptiles.github.io/positron-gl-style/sprite",
-  "glyphs": "https://api.maptiler.com/fonts/{fontstack}/{range}.pbf?key=get_your_own_OpIi9ZULNHzrESv6T2vL",
+  "glyphs": "https://api.maptiler.com/fonts/{fontstack}/{range}.pbf?key=get_your_own_MOlaJF6o1CcYhnO7JnI4",
   "layers": [
     {
       "id": "background",
@@ -84,7 +84,7 @@
       "source": "CSD_tiles",
       "source-layer": "CSD_shelter_data",
       "minzoom": 0,
-      "maxzoom": 10.5,
+      "maxzoom": 10,
       "layout": {"visibility": "visible"},
       "paint": {
         "fill-color": [
