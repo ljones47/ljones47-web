@@ -33,9 +33,13 @@
       "type": "vector",
       "url": "pmtiles://https://ljones47.github.io/ljones47-web/CT_shelter.pmtiles"
     },
-    "CSD_tiles": {
-      "type": "vector",
-      "url": "pmtiles://https://ljones47.github.io/ljones47-web/CSD_shelter2.pmtiles"
+    "CSD_shelter1": {
+      "type": "geojson",
+      "url": "https://ljones47.github.io/ljones47-web/CSD_shelter_half_one.json"
+    }
+    "CSD_shelter2": {
+      "type": "geojson",
+      "url": "https://ljones47.github.io/ljones47-web/CSD_shelter_half_two.json"
     },
     "DA_tiles2": {
       "type": "vector",
@@ -52,9 +56,45 @@
       "paint": {"background-color": "rgba(190, 190, 190, 1)"}
     },
     {
-      "id": "CSD_tiles",
+      "id": "CSD shelter1",
       "type": "fill",
-      "source": "CSD_tiles",
+      "source": "CSD_shelter1",
+      "source-layer": "CSD_shelter_data",
+      "minzoom": 0,
+      "maxzoom": 10,
+      "layout": {"visibility": "visible"},
+      "paint": {
+        "fill-color": [
+          "step",
+          ["get", "COL3"],
+          "rgba(230, 230, 230, 0.9)",
+          1,
+          "#fff8f2",
+          15,
+          "#fee5ce",
+          30,
+          "#fed1b1",
+          45,
+          "#f9ba9a",
+          60,
+          "#fda279"
+        ],
+        "fill-opacity": 1,
+        "fill-outline-color": [
+          "interpolate",
+          ["linear"],
+          ["zoom"],
+          6,
+          "rgba(207, 207, 207, 0.2)",
+          10,
+          "rgba(170, 170, 170, 0.9)"
+        ]
+      }
+    },
+    {
+      "id": "CSD shelter2",
+      "type": "fill",
+      "source": "CSD_shelter2",
       "source-layer": "CSD_shelter_data",
       "minzoom": 0,
       "maxzoom": 10,
