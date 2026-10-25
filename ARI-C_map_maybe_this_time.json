@@ -34,11 +34,11 @@
       "url": "pmtiles://https://ljones47.github.io/ljones47-web/CT_shelter.pmtiles"
     },
     "CSD_shelter1": {
-      "type": "json",
+      "type": "geojson",
       "url": "https://ljones47.github.io/ljones47-web/CSD_shelter_half_one.json"
     },
     "CSD_shelter2": {
-      "type": "json",
+      "type": "geojson",
       "url": "https://ljones47.github.io/ljones47-web/CSD_shelter_half_two.json"
     },
     "DA_tiles2": {
