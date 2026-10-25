@@ -20,8 +20,6 @@
       style: 'ARI-C_map_maybe_this_time.json',        // the file you downloaded from Maputnik
       center: [-124.8, 54.8],    // longitude, latitude
       zoom: 4.25
-    });
-    map.addControl(new maplibregl.NavigationControl());
     function onARICase(e) {
       const ARIC = e.features[0].properties;
       const unitsImpacted = e.features[0].properties['Increase unit #'];
@@ -41,6 +39,8 @@
                     <p>File Link (if applicable: ${fileLink}</p>');
       popup.addTo(map)
       map.on('click', 'ARI-C_cases', onARICase)
+    });
+    map.addControl(new maplibregl.NavigationControl());
   </script>
 </body>
 </html>
