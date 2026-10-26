@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>ARI-Cs and rental affordability</title>
+  <link href="https://cdn.jsdelivr.net/npm/maplibre-gl@5.24.0/dist/maplibre-gl.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/maplibre-gl@5.24.0/dist/maplibre-gl.js"></script>
+  <script src="https://unpkg.com/pmtiles@4.5.0/dist/pmtiles.js"></script>
+  <style> body { margin: 0; } 
+  #map { position: relative; width: 100%; height: 100vh; inset: 0; } 
+  #title {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-top: 10px;
+    margin-left: 10px;
+    background-color:rgba(254, 255, 252, 0.8);
+    box-shadow: 0 0 0 2px rgb(0 0 0 / 10%);
+    padding: 5px;
+    border-radius: 3px;
+    font-size: 1.3rem;
+    font-family: "Trebuchet MS";
+    z-index: 1000
+  }
+  #legend {
+    position: absolute;
+    left: 0px;
+    margin-top: 10px;
+    margin-left: 0px;
+    background-color:rgba(254, 255, 252, 0.8);
+    box-shadow: 0 0 0 2px rgb(0 0 0 / 10%);
+    padding: 5px;
+    border-radius: 3px;
+    font-size: 0.8rem;
+    font-family: "Trebuchet MS";
+    z-index: 1000
+  }
+  h3 {
+    margin-top: 1px;
+    margin-bottom: -1px;
+  }
+  h4 {
+    margin-top: 1px;
+    margin-bottom: 2px;
+  }
+  </style>
+</head>
+<body>
+  <div id="map">
+    <div id="title">
+      Additional Rent Increase for Capital Expenditure (ARI-C) cases and percentage of tenants <br> paying unaffordable rent in BC
+    <div id="legend">
+      <h4>Percentage of renters spending over <br>30% of income on shelter</h4>
+      <div><span style="width: 20px; height: 15px; background-color: rgba(230, 230, 230, 0.9); display: inline-block"></span>  Data unavailable</div>
+      <div><span style="width: 20px; height: 15px; background-color: #fff8f2; display: inline-block"></span>  <15</div>
+      <div><span style="width: 20px; height: 15px; background-color: #fee5ce; display: inline-block"></span>  15 - 29.9</div>
+      <div><span style="width: 20px; height: 15px; background-color: #fed1b1; display: inline-block"></span>  30 - 44.9</div>
+      <div><span style="width: 20px; height: 15px; background-color: #f9ba9a; display: inline-block"></span>  45 - 59.9</div>
+      <div><span style="width: 20px; height: 15px; background-color: #fda279; display: inline-block"></span>  >60</div>
+    </div>
+  </div>
+
+  <script>
+    const protocol = new pmtiles.Protocol();
+    maplibregl.addProtocol('pmtiles', protocol.tile);
+  </script>
+  <script>
+    const map = new maplibregl.Map({
+      container: 'map',
+      style: 'ARI-C_map_maybe_this_time.json',        // the file you downloaded from Maputnik
+      center: [-124.8, 54.8],    // longitude, latitude
+      zoom: 4.4});
+
+    let hoveredStateId = null;
+
+    map.on("mousemove", "ARI-C cases", (e) => {
+        if (e.features.length > 0) {
+          if (hoveredStateId) {
+            map.setFeatureState(
+              {source: "ARI-C_cases", id: hoveredStateId},
+              {hover: false}
+          )
+        }
+        hoveredStateId = e.features[0].id;
+        map.setFeatureState(
+          {source: "ARI-C_cases", id: hoveredStateId},
+          {hover: true}
+        )
+      }
+    });
+
+    map.on("mouseleave", "ARI-C cases", () => {
+            if (hoveredStateId) {
+                map.setFeatureState(
+                    {source: "ARI-C_cases", id: hoveredStateId},
+                    {hover: false}
+                );
+            }
+            hoveredStateId = null;
+        });
+
+      map.on("mouseenter", "ARI-C cases", () => {
+        map.getCanvas().style.cursor = "pointer";
+      });
+
+      map.on("mouseleave", "ARI-C cases", () => {
+        map.getCanvas().style.cursor = "";
+      });
+
+  map.on('click', 'ARI-C cases', onARICclick);
+    function onARICclick(e) {
+      const ARIC = e.features[0].properties;
+      const unitsImpacted = e.features[0].properties['Increase unit #'];
+      const averageRent = e.features[0].properties['Average rent'];
+      const formattedAvgRent = Number(averageRent).toLocaleString('en-US');
+      const requested = e.features[0].properties['Requested amt'];
+      const formattedRequested = Number(requested).toLocaleString('en-US');
+      const granted = e.features[0].properties['Granted amt'];
+      const corporateApplicant = e.features[0].properties['Corporate applicant'];
+      const decision = e.features[0].properties['Decision'];
+      const fileLink = e.features[0].properties['File Link'];
+      const popup = new maplibregl.Popup()
+        popup.setLngLat(e.lngLat);
+        popup.setHTML(`<h3>Application Information</h3><p>Units Impacted: ${unitsImpacted}<br>Average Monthly Rent (before increase): $${formattedAvgRent}<br>Units Impacted: ${unitsImpacted}<br>Amount Requested: $${formattedRequested}<br>Amount Granted: ${granted}<br>Corporate Applicant: ${corporateApplicant}<br>Case Decision: ${decision}<br><a href="${fileLink}" target="_blank">Hearing file (if available)</a></p>`);
+      popup.addTo(map);
+    }
+    map.addControl(new maplibregl.NavigationControl());
+  </script>
+</body>
+</html>
