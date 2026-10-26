@@ -537,6 +537,7 @@
           ["boolean", ["feature-state", "hover"], false],
           1.0,
           0.4,
+        ]
         "circle-stroke-color": "rgba(255, 255, 255, 1)",
         "circle-stroke-width": 0.2
       }
