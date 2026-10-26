@@ -27,7 +27,8 @@
     },
     "ARI-C_cases": {
       "type": "geojson",
-      "data": "https://ljones47.github.io/ljones47-web/ARI-C_case_points.geojson"
+      "data": "https://ljones47.github.io/ljones47-web/ARI-C_case_points.geojson",
+      "attribution": "HSG-2025-51700, BC Ministry of Housing and Municipal Affairs"
     },
     "CT_tiles": {
       "type": "vector",
@@ -35,7 +36,8 @@
     },
     "CSD_shelter1": {
       "type": "geojson",
-      "data": "https://ljones47.github.io/ljones47-web/CSD_shelter_half_one.json"
+      "data": "https://ljones47.github.io/ljones47-web/CSD_shelter_half_one.json",
+      "attribution": "2021 Census of Population, Statistics Canada"
     },
     "CSD_shelter2": {
       "type": "geojson",
@@ -183,7 +185,7 @@
       "layout": {"visibility": "visible"},
       "paint": {
         "fill-color": "rgba(190, 205, 177, 1)",
-        "fill-outline-color": "rgba(46, 46, 46, 1)",
+        "fill-outline-color": "rgba(46, 46, 46, 0)",
         "fill-opacity": ["literal", 1]
       }
     },
@@ -530,7 +532,11 @@
           ["interpolate", ["linear"], ["get", "Increase unit #"], 1, 4, 410, 44]
         ],
         "circle-color": "rgba(115,15, 58, 1)",
-        "circle-opacity": 0.4,
+        "circle-opacity": [
+          "case",
+          ["boolean", ["feature-state", "hover"], false],
+          1.0,
+          0.4,
         "circle-stroke-color": "rgba(255, 255, 255, 1)",
         "circle-stroke-width": 0.2
       }
