@@ -126,7 +126,7 @@
       "type": "fill",
       "source": "CT_tiles",
       "source-layer": "CT_shelter_data",
-      "minzoom": 10.5,
+      "minzoom": 10,
       "maxzoom": 12,
       "layout": {"visibility": "visible"},
       "paint": {
