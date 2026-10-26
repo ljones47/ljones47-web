@@ -61,7 +61,7 @@
       "id": "CSD shelter1",
       "type": "fill",
       "source": "CSD_shelter1",
-      "maxzoom": 10,
+      "maxzoom": 11,
       "paint": {
         "fill-color": [
           "step",
@@ -93,7 +93,7 @@
       "id": "CSD shelter2",
       "type": "fill",
       "source": "CSD_shelter2",
-      "maxzoom": 10,
+      "maxzoom": 11,
       "paint": {
         "fill-color": [
           "step",
