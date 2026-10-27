@@ -571,10 +571,10 @@
         "visibility": "visible"
       },
       "paint": {
-        "text-color": "rgb(117, 129, 145)",
+        "text-color": "rgba(80, 82, 92, 1)",
         "text-halo-blur": 1,
         "text-halo-color": "rgb(242,243,240)",
-        "text-halo-width": 1
+        "text-halo-width": 1.2
       }
     },
     {
@@ -599,7 +599,7 @@
         "text-color": "rgb(117, 129, 145)",
         "text-halo-blur": 1,
         "text-halo-color": "rgba(255, 248, 242, 1)",
-        "text-halo-width": 1
+        "text-halo-width": 1.4
       }
     },
     {
@@ -688,7 +688,7 @@
         "text-color": "rgba(80, 82, 92, 1)",
         "text-halo-blur": 1,
         "text-halo-color": "rgba(255, 248, 242, 1)",
-        "text-halo-width": 1
+        "text-halo-width": 1.4
       }
     },
     {
@@ -720,7 +720,7 @@
         "text-color": "rgb(117, 129, 145)",
         "text-halo-blur": 1,
         "text-halo-color": "rgba(255, 248, 242, 1)",
-        "text-halo-width": 1
+        "text-halo-width": 1.4
       }
     },
     {
@@ -757,7 +757,7 @@
         "text-color": "rgba(46, 52, 59, 1)",
         "text-halo-blur": 1,
         "text-halo-color": "rgba(255, 248, 242, 1)",
-        "text-halo-width": 1
+        "text-halo-width": 1.4
       }
     },
     {
